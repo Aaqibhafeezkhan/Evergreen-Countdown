@@ -88,7 +88,7 @@ To deploy your own instance:
 3. Deploy using the existing `vercel.json` configuration.
 4. Use your deployment URL for API embeds.
 
-Deployment is intentionally manual; this repository does not require GitHub Actions for deployment.
+Deployment is intentionally manual; the repository does not require GitHub Actions for deployment or countdown generation.
 
 ## Tech stack
 
@@ -106,9 +106,7 @@ Deployment is intentionally manual; this repository does not require GitHub Acti
 ├── index.html
 ├── script.js
 ├── style.css
-├── vercel.json
-├── countdown.svg
-└── generate-countdown.js
+└── vercel.json
 ```
 
 ## Roadmap
