@@ -96,6 +96,18 @@ Do not rely on opening `index.html` directly with a `file://` URL when verifying
 
 The API is a Vercel serverless function and is not executed by the static Python server. For API changes, deploy the repository to a Vercel project and verify the generated endpoint there, or use the Vercel CLI locally if it is already installed in your environment.
 
+## Automated tests
+
+The countdown engine has a dependency-free test suite using Node.js's built-in `node:test` runner. It covers default year rollover, remaining-time decomposition, expired targets, IANA timezone conversion, explicit offsets, invalid timezones, configuration fallbacks, and text normalization.
+
+Run the suite from the repository root:
+
+```bash
+node --test tests/countdown-engine.test.js
+```
+
+The test suite requires a supported Node.js runtime and does not install a package manager dependency. API rendering and browser behavior remain covered by the manual verification checklist below.
+
 ## Manual verification checklist
 
 Before deployment, verify the following against the current branch:
@@ -173,6 +185,8 @@ The repository README's live embed currently points at the project's Vercel depl
 ├── index.html
 ├── script.js
 ├── style.css
+├── tests/
+│   └── countdown-engine.test.js
 ├── vercel.json
 └── README.md
 ```
@@ -197,7 +211,7 @@ Found a bug or have an improvement in mind? Open an issue or submit a focused pu
 
 Please keep changes small and focused, avoid unnecessary dependencies, and follow the repository's existing conventions.
 
-For local verification, follow the [Run locally](#run-locally) and [Manual verification checklist](#manual-verification-checklist) sections before opening a pull request.
+For local verification, run the automated test suite and follow the [Run locally](#run-locally) and [Manual verification checklist](#manual-verification-checklist) sections before opening a pull request.
 
 ## License
 
